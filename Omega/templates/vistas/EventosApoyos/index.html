@@ -1,0 +1,148 @@
+<div class="modal-dialog modal-xl" role="document" >
+    <div class="modal-content"  id="modal1">
+        <div class="modal-header">
+            <h2 class="modal-title">NUEVO REGISTRO</h2>
+            <button class="btn-close" onclick="" type="button" aria-dismiss="modal" aria-label="Close">
+            </button>
+        </div>
+        <form id="eventos_crear" action="{% url 'eventos/index' %}" method="post">
+           {% csrf_token %}
+            <div class="modal-body mb-2">
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-3 mt-2 text-center">
+                        <label for="{{form.fecha.id_for_label}}" class="form-control-label" id="label1">Fecha</label>
+                        {{ form.fecha }}
+                    </div>
+                    <div class="col-md-3 mt-2 text-center">
+                        <label for="{{form.hora.id_for_label}}" class="form-control-label" id="label1" >Hora</label>
+                        {{form.hora}}
+                    </div>
+                    <div class="col-md-3 mt-2 text-center">
+                        <label for="{{form.origen.id_for_label}}" class="form-control-label" id="label1" >Origen</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <img src="https://img.icons8.com/material/16/000000/phone-ringing.png"/>
+                            </span>    
+                            {{form.origen}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-6 text-center">
+                        <label for="{{form.domicilio.id_for_label}}" class="form-control-label" id="label1" >Domicilio</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+                                </svg>
+                            </span>
+                            {{form.domicilio}}
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <label for="{{form.sector.id_for_label}}" class="form-control-label" id="label1" >Sector</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <img src="https://img.icons8.com/material/16/000000/compass--v1.png"/>
+                            </span>
+                            {{form.sector}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-2 text-center">
+                        <label for="{{form.unidad.id_for_label}}" class="form-control-label" id="label1">Unidad</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <img src="https://img.icons8.com/material/16/000000/police-car--v1.png"/>
+                            </span>
+                            {{form.unidad}} 
+                            <p class="help-block te">{{form.unidad.help_text}}</p>
+                        </div>  
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <label for="{{form.grupo.id_for_label}}" class="form-control-label" id="label1" >Grupo</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <img src="https://img.icons8.com/material/16/000000/user-group-man-man--v1.png"/>
+                            </span>
+                            {{form.grupo}}
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <label for="{{form.agentes.id_for_label}}" class="form-control-label" id="label1" >Elemento</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                  </svg>
+                            </span>
+                            {{form.agentes}}
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-3 text-center">
+                        <label for="{{form.tipo_evento.id_for_label}}" class="form-control-label" id="label1" >Tipo de Evento</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <img src="https://img.icons8.com/material/16/000000/important-month.png"/>
+                            </span>
+                            {{form.tipo_evento}}
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <label for="{{form.dependencia.id_for_label}}" class="form-control-label" id="label1" >Dependencia</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <img src="https://img.icons8.com/material/16/000000/add-contact-to-company--v1.png"/>
+                            </span>
+                            {{form.dependencia}}
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <label for="{{form.accion.id_for_label}}" class="form-control-label" id="label1" >Acción</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="add_icon">
+                                <img src="https://img.icons8.com/material/16/000000/road-worker--v1.png"/>
+                            </span>
+                            {{form.accion}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-8">
+                        <label for="{{form.observaciones.id_for_label}}" class="form-control-label" id="label1" >Observaciones</label>
+                        {{form.observaciones}}
+                    </div>
+                </div>
+               
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger btn-lg" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary btn-lg" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(".btn-close").click(function(){
+             $("#create").modal('hide');
+         });
+ 
+     $(".btn-danger").click(function(){
+             $("#create").modal('hide');
+         });
+
+    $(function () {
+    $("#datetimepicker1").datepicker({
+      format: 'YYYY-MM-DD',
+    });
+  });
+ </script>

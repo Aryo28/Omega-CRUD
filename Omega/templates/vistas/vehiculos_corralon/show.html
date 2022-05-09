@@ -1,0 +1,140 @@
+<div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content"  id="modal1">
+        <div class="modal-header">
+            <h2 class="modal-title">INFORMACION DEL REGISTRO: {{ac.id}} </h2>
+            <button class="btn-close"  type="button" aria-dismiss="modal" aria-label="Close">
+            </button>
+        </div>
+        <div class="modal-body mb-2">
+            <div class="card-body">
+                <dl class="row text-white">
+                    <dt class="col-6 " id="show1">
+                        Fecha:
+                    </dt>
+                    <dd class="col-6 " id="show2">
+                        {{object.fecha}}
+                    </dd>
+                    
+                    <dt class="col-6 " id="show1">
+                        Hora:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.hora}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Folio 911:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.folio_911}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Ubicación del Vehículo:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.ubicacion_vehiculo}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Marca del Vehículo:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.marca_vehiculo}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Tipo de Vehículo:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.tipo_vehiculo}}
+                    </dd>
+                    {% if object.modelo_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                            Modelo:
+                        </dt>
+                        <dd class="col-6">
+                            {{object.modelo_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    <dt class="col-6 " id="show1">
+                        Placas:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.placas_vehiculo}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Color:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.color_vehiculo}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        N° de Serie:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.serie_vehiculo}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Folio de Inracción:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.folio_infraccion}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                       Numerales:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.numerales}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Inventario:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.inventario}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Grúa:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.grua}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Unidad:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.unidad}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Elemento:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.elemento}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Observaciones:
+                    </dt>
+                    <dd class="col-6">
+                        {{object.observaciones}}
+                    </dd>
+                </dl>  
+                <div class="row justify-content-center">
+                    <div class="col-md-3 text-center">
+                        <a href="{% url 'corralon/update' object.id %}" class="btn btn-lg" id="conductor">EDITAR</a>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" type="button" data-dismiss="modal">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(".btn-close").click(function(){
+            $("#view").modal('hide');
+        });
+    
+    $(".btn-danger").click(function(){
+            $("#view").modal('hide');
+        });
+</script>

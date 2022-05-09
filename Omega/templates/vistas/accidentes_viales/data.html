@@ -1,0 +1,256 @@
+{%  extends 'vistas/main.html' %}
+
+{% load static %}
+
+{% block extraCSS %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
+{% endblock extraCSS %}
+
+
+{% block content %}
+<br>
+<br>
+
+<div class="container-fluid">
+    <div class="card mx-auto" style="width:95%; height:auto;">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-12 mt-2 text-center">
+                    <p class="h2 text-white text-center mb-5">
+                        <img class="mb-2 mx-3" src="https://img.icons8.com/officel/60/000000/crashed-car.png"/>
+                        ACCIDENTES VIALES
+                        <img class="mb-2 mx-3" src="https://img.icons8.com/officel/60/000000/crashed-car.png"/>
+                    </p> 
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-3" style="width: 95% ">
+            <div class="row justify-content-center mt-2 mb-5"> <!--Statistics-->
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-white">
+                            <div class="card-header" id="cardData">
+                                <h5 class="card-title">Atendidos </h5>
+                            </div>
+                            <div class="card-body"  id="data">
+                                <h3 class="card-title">{{data.atendidos}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-white" >
+                            <div class="card-header"  id="cardData">
+                                <h5 class="card-title">No Atendidos </h5>
+                            </div>
+                            <div class="card-body" id="data">
+                                <h3 class="card-title">{{data.noAtendidos}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col">
+                    <div class="col-md">
+                        <div class="card text-center text-white" >
+                            <div class="card-header"  id="cardData">
+                                <h5 class="card-title">Ejemplo </h5>
+                            </div>
+                            <div class="card-body" id="data">
+                                <h3 class="card-title"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Boton crear nuevo registro--> 
+        <div class="row justify-content-center mt-3 mb-5">
+            <button class="button-27" type="button" onclick="document.location.href='{% url 'accidentes/index' %}'">
+                CREAR NUEVO REGISTRO  
+            </button>   
+        </div>
+
+
+        <nav id="navData">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab2" data-bs-toggle="tab" data-bs-target="#atendidos" type="button" role="tab" aria-controls="nav-home" aria-selected="true">ATENDIDOS</button>
+                <button class="nav-link" id="nav-profile-tab2" data-bs-toggle="tab" data-bs-target="#no-atendidos" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">NO ATENDIDOS</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-activos" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">ACTIVOS</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-inactivos" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">INACTIVOS</button>    
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="atendidos" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row  mb-3">
+                    <div class="col-md">
+                        <div class="card mx-auto" style="width:95%; height:auto;" id="tabla1">
+                            <div class="row mt-2" > 
+                                <div class="col-md-12" id="filtro_fecha">
+                                    <!--Filtro Datatble para fecha--> 
+                                    <label for="form-control" class="text-white">Desde:</label>
+                                    <input class="" type="text" id="filtrar_fecha1" placeholder="Fecha inicial "/>
+                                    <label for="form-control" class="text-white" >Hasta:</label>
+                                    <input class="" type="text" id="filtrar_fecha2"  placeholder="Fecha final "/>
+                                </div>
+                            </div>
+                            <table class="table table-hover" id="accidentes1" style="width:100%">
+                                <thead id="thead1">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Estatus</th>
+                                        <th>Estatus Servicio</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Unidad</th>
+                                        <th>Domicilio</th>
+                                        <th>Colonia</th>
+                                        <th>Sector</th>
+                                        <th>Evento</th>
+                                        <th>Observaciones</th>
+                                        <th></th>   
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody1">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="no-atendidos" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row mb-3">
+                    <div class="col-md">
+                        <div class="card mx-auto" style="width:95%; height:auto;" id="tabla1">
+                            <div class="row mt-2" > 
+                                <div class="col-md-12" id="filtro_fecha">
+                                    <!--Filtro Datatble para fecha--> 
+                                    <label for="form-control" class="text-white">Desde:</label>
+                                    <input class="" type="text" id="filtrar_fecha3" placeholder="Fecha inicial "/>
+                                    <label for="form-control" class="text-white" >Hasta:</label>
+                                    <input class="" type="text" id="filtrar_fecha4"  placeholder="Fecha final "/>
+                                </div>
+                            </div>
+                            <table class="table table-hover" id="accidentes2" style="width:100%">
+                                <thead id="thead1">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Estatus</th>
+                                        <th>Estatus Servicio</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Unidad</th>
+                                        <th>Domicilio</th>
+                                        <th>Colonia</th>
+                                        <th>Sector</th>
+                                        <th>Evento</th>
+                                        <th>Observaciones</th>
+                                        <th></th>   
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody1">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="tab-pane fade" id="nav-activos" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row mb-3">
+                    <div class="col-md">
+                        <div class="card mx-auto" style="width:95%; height:auto;" id="tabla1">
+                            <div class="row mt-2" > 
+                                <div class="col-md-12" id="filtro_fecha">
+                                    <!--Filtro Datatble para fecha--> 
+                                    <label for="form-control" class="text-white">Desde:</label>
+                                    <input class="" type="text" id="filtrar_fecha5" placeholder="Fecha inicial "/>
+                                    <label for="form-control" class="text-white" >Hasta:</label>
+                                    <input class="" type="text" id="filtrar_fecha6"  placeholder="Fecha final "/>
+                                </div>
+                            </div>
+                            <table class="table table-hover" id="accidentes3" style="width:100%">
+                                <thead id="thead1">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Estatus</th>
+                                        <th>Estatus Servicio</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Unidad</th>
+                                        <th>Domicilio</th>
+                                        <th>Colonia</th>
+                                        <th>Sector</th>
+                                        <th>Evento</th>
+                                        <th>Observaciones</th>
+                                        <th></th>   
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody1">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="tab-pane fade" id="nav-inactivos" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row mb-3">
+                    <div class="col-md">
+                        <div class="card mx-auto" style="width:95%; height:auto;" id="tabla1">
+                            <div class="row mt-2" > 
+                                <div class="col-md-12" id="filtro_fecha">
+                                    <!--Filtro Datatble para fecha--> 
+                                    <label for="form-control" class="text-white">Desde:</label>
+                                    <input class="" type="text" id="filtrar_fecha7" placeholder="Fecha inicial "/>
+                                    <label for="form-control" class="text-white" >Hasta:</label>
+                                    <input class="" type="text" id="filtrar_fecha8"  placeholder="Fecha final "/>
+                                </div>
+                            </div>
+                            <table class="table table-hover" id="accidentes4" style="width:100%">
+                                <thead id="thead1">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Estatus</th>
+                                        <th>Estatus Servicio</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Unidad</th>
+                                        <th>Domicilio</th>
+                                        <th>Colonia</th>
+                                        <th>Sector</th>
+                                        <th>Evento</th>
+                                        <th>Observaciones</th>
+                                        <th></th>    
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody1">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="modal fade"id="create" role="dialog"></div>
+        <div class="modal fade"id="edit" role="dialog"></div>
+        <div class="modal fade"id="view" role="dialog"></div>
+        <div class="modal fade"id="delete" role="dialog"></div>
+        <div class="modal fade"id="activate" role="dialog"></div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extrajs %}
+<script src="{% static 'js/accidentes/index.js'%}" type="text/javascript"></script>
+{% endblock extrajs %}

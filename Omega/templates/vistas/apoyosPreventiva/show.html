@@ -1,0 +1,108 @@
+<div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content"  id="modal1">
+        <div class="modal-header">
+            <h2 class="modal-title">INFORMACION DEL REGISTRO: {{object.id}} </h2>
+            <button class="btn-close"  type="button" aria-dismiss="modal" aria-label="Close">
+            </button>
+        </div>
+            <div class="modal-body mb-2">
+                <div class="card-body">
+                    <dl class="row text-white">
+                        <dt class="col-6 " id="show1">
+                            Fecha:
+                        </dt>
+                        <dd class="col-6 " id="show2">
+                            {{registro.fecha}}
+                        </dd>
+                        
+                        <dt class="col-6 " id="show1">
+                            Hora:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.hora}}
+                        </dd>
+                        <dt class="col-6 " id="show1">
+                            Domicilio:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.domicilio}}
+                        </dd>
+                        <dt class="col-6 " id="show1">
+                            Colonia:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.id_colonia}}
+                        </dd>
+                        <dt class="col-6 " id="show1">
+                            Sector:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.id_sector}}
+                        </dd>
+                        <dt class="col-6 " id="show1">
+                            Unidad:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.unidad}}
+                        </dd>
+                       <dt class="col-6 " id="show1">
+                            Grupo Operativo:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.id_grupo}}
+                        </dd>
+                        {% if registro.elemento != none %}
+                            <dt class="col-6 " id="show1">
+                            Elemento:
+                            </dt>
+                            <dd class="col-6">
+                                {{registro.elemento}}
+                            </dd>
+                        {% endif %}
+                        <dt class="col-6 " id="show1">
+                            Evento:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.evento}}
+                        </dd>
+                        {% if registro.folio_infraccion != none %}
+                            <dt class="col-6 " id="show1">
+                                Folio de Infracción:
+                            </dt>
+                            <dd class="col-6">
+                                {{registro.folio_infraccion}}
+                            </dd>
+                        {% endif %}
+                        <dt class="col-6 " id="show1">
+                            Unidad de Preventiva:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.unidad_preventiva}}
+                        </dd>
+                        <dt class="col-6 " id="show1">
+                            Observaciones:
+                        </dt>
+                        <dd class="col-6">
+                            {{registro.observaciones}}
+                            
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button" data-dismiss="modal">Cerrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+   $(".btn-close").click(function(){
+            $("#view").modal('hide');
+        });
+
+    $(".btn-danger").click(function(){
+            $("#view").modal('hide');
+        });
+</script>

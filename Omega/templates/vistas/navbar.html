@@ -1,0 +1,72 @@
+{% load static %}
+
+<div class="wrapper">
+  <!--Top menu -->
+  <div class="sidebar">
+    <ul>
+      <li>
+          <a href="{% url 'home' %}" class="">
+              <span class="icon"><i class="fa-solid fa-house-chimney"></i></span>
+              <span class="item">Inicio</span>
+          </a>
+      </li>
+      <li>
+          <a href="{% url 'bitacora/list'%}">
+              <span class="icon"><i class="fa-solid fa-book"></i></span>
+              <span class="item">Bitácora</span>
+          </a>
+      </li>
+      <li>
+          <a href="{% url 'accidentes/data'%}">
+              <span class="icon"><i class="fa-solid fa-car-burst"></i></span>
+              <span class="item">Accidentes Viales</span>
+          </a>
+      </li>
+      <li>
+          <a href="{% url 'eventos/data'%}">
+              <span class="icon"><i class="fa-solid fa-person-digging"></i></span>
+              <span class="item">Eventos y Apoyos</span>
+          </a>
+      </li>
+      <li>
+          <a href="{% url 'mal-estacionados/data'%}">
+              <span class="icon"><i class="fa-solid fa-person-military-pointing"></i></span>
+              <span class="item">Mal Estacionados</span>
+          </a>
+      </li>
+      <li>
+          <a href="{% url 'preventiva/data'%}">
+              <span class="icon"><i class="fa-solid fa-person-military-to-person"></i></span>
+              <span class="item">Apoyos a Preventiva</span>
+          </a>
+      </li>
+      <li>
+          <a href="{% url 'detenidos/data'%}">
+              <span class="icon"><i class="fa-solid fa-people-robbery"></i></span>
+              <span class="item">Detenidos</span>
+          </a>
+      </li>
+      <li>
+          <a href="{% url 'corralon/data'%}">
+              <span class="icon"><i class="fa-solid fa-trailer"></i></span>
+              <span class="item">Vehículo al Corralón</span>
+          </a>
+      </li>
+    </ul>
+
+  </div>
+  <div class="section mb-5">
+    <div class="top_navbar">
+        <div class="hamburger">
+            <a href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
+        <p>
+          <img id="logo" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/50/000000/external-omega-ancient-greek-mythology-monsters-and-creatures-flaticons-lineal-color-flat-icons.png"/>
+        </p>
+    </div>
+
+</div>
+
+</div>

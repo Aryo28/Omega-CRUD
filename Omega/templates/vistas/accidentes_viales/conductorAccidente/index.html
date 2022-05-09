@@ -1,0 +1,213 @@
+{%  extends 'vistas/main.html' %}
+
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<div class="container-fluid">
+    <form id="conductores_accidente" action="" method="post">
+
+        <div class="card mx-auto" style="width:85%; height:auto;">
+            <div class="card-header mb-4">
+                <div class="row">
+                    <div class="col-12 mt-2 text-center">
+                        <p class="h2 text-white text-center mb-2">
+                            <img src="https://img.icons8.com/officel/60/000000/driver.png"/>
+                            CONDUCTORES
+                            <img src="https://img.icons8.com/officel/60/000000/driver.png"/>
+                        </p> 
+                    </div>
+                </div>
+            </div>
+
+
+         {% csrf_token %}
+            <hr class=" mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <p class="h4 text-white">DATOS DEL CONDUCTOR</p>
+                </div>
+            </div>
+            <hr>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-3 mt-2 text-center">
+                <label for="{{form.nombre_conductor.id_for_label}}" class="form-control-label" id="label1">Nombre(s) del Conductor</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                            </svg>
+                    </span>
+                    {{form.nombre_conductor}}
+                </div>
+            </div>
+            <div class="col-md-3 mt-2 text-center">
+                <label for="{{form.apellido_paterno_conductor.id_for_label}}" class="form-control-label" id="label1">Apellido Paterno</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                            </svg>
+                    </span>
+                    {{form.apellido_paterno_conductor}}
+                </div>
+            </div>
+            <div class="col-md-3 mt-2 text-center">
+                <label for="{{form.apellido_materno_conductor.id_for_label}}" class="form-control-label" id="label1">Apellido Materno</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                            </svg>
+                    </span>
+                    {{form.apellido_materno_conductor}}
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-9 mt-2 text-center">
+                <label for="{{form.domicilio_conductor.id_for_label}}" class="form-control-label" id="label1">Domicilio del conductor</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/cab-stand.png"/>
+                    </span>
+                    {{form.domicilio_conductor}}
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3 mb-3">
+            <div class="col-md-3 mt-2 text-center">
+                <label for="{{form.sexo_conductor.id_for_label}}" class="form-control-label" id="label1">Sexo del Conductor</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-ambiguous" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z"/>
+                        </svg>
+                    </span>
+                    {{form.sexo_conductor}}
+                </div>
+            </div>
+            <div class="col-md-3 mt-2 text-center">
+                <label for="{{form.edad_conductor.id_for_label}}" class="form-control-label" id="label1">Edad del Conductor</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/lifecycle.png"/>
+                    </span>
+                    {{form.edad_conductor}}
+                </div>
+            </div>
+            <div class="col-md-3 mt-2 text-center">
+                <label for="{{form.licencia_conductor.id_for_label}}" class="form-control-label" id="label1">Licencia</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-ambiguous" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M11.5 1a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-3.45 3.45A4 4 0 0 1 8.5 10.97V13H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V14H6a.5.5 0 0 1 0-1h1.5v-2.03a4 4 0 1 1 3.471-6.648L14.293 1H11.5zm-.997 4.346a3 3 0 1 0-5.006 3.309 3 3 0 0 0 5.006-3.31z"/>
+                            </svg>
+                    </span>
+                    {{form.licencia_conductor}}
+                </div>
+            </div>
+        </div>
+        <hr class="mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <p class="h4 text-white">DATOS DEL VEHICULO</p>
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-3 text-center">
+                <label for="{{form.servicio_vehiculo.id_for_label}}" class="form-control-label" id="label1">Servicio del Vehículo</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/cab-stand.png"/>
+                    </span>
+                    {{form.servicio_vehiculo}} 
+                </div>  
+            </div>
+            <div class="col-md-3 text-center">
+                <label for="{{form.tipo_servicio_vehiculo.id_for_label}}" class="form-control-label" id="label1" >Tipo de Servicio</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/bus--v1.png"/>
+                    </span>
+                    {{form.tipo_servicio_vehiculo}}
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <label for="{{form.clasificacion_vehiculo.id_for_label}}" class="form-control-label" id="label1" >Clasificación del Vehículo</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/suv-2.png"/>
+                    </span>
+                    {{form.clasificacion_vehiculo}}
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-3 text-center">
+                <label for="{{form.marca_vehiculo.id_for_label}}" class="form-control-label" id="label1" >Marca del Vehículo</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/pickup.png"/>
+                    </span>    
+                    {{form.marca_vehiculo }}
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <label for="{{form.tipo_vehiculo.id_for_label}}" class="form-control-label" id="label1" >Tipo de Vehículo</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/ios-filled/16/000000/deliver-food.png"/>
+                    </span>    
+                    {{form.tipo_vehiculo}}
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <label for="{{form.modelo_vehiculo.id_for_label}}" class="form-control-label" id="label1" >Modelo del Vehículo </label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/2009.png"/>
+                    </span>    
+                    {{form.modelo_vehiculo}}
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3 mb">
+            <div class="col-md-3 text-center">
+                <label for="{{form.placas_vehiculo.id_for_label}}" class="form-control-label" id="label1" >Placas del Vehículo </label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/car-battery--v2.png"/>
+                    </span>    
+                    {{form.placas_vehiculo}}
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <label for="{{form.color_vehiculo.id_for_label}}" class="form-control-label" id="label1" >Color del Vehículo</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="add_icon">
+                        <img src="https://img.icons8.com/material/16/000000/paint-palette--v1.png"/>
+                    </span>    
+                    {{form.color_vehiculo}}
+                </div>
+            </div>
+        </div>
+            <div class="row justify-content-center mt-4 mb-4">
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-lg" id="guardar" type="submit" >GUARDAR </button>
+                    <a href="{% url  'accidentes/data'  %}" class="btn btn-lg" id="conductor">SALIR</a>
+                </div>   
+            </div>
+        </div>  
+    </form>
+</div>  
+
+{% endblock %}
+
+{% block extrajs %} 
+<script src="{% static 'js/main.js' %}" type="text/javascript"></script>
+
+
+{% endblock extrajs %}

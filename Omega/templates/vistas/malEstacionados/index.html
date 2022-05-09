@@ -1,0 +1,184 @@
+{%  extends 'vistas/main.html' %}
+
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<div class="container-fluid">
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="card mx-auto" style="width:85%; height:auto;">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-12 mt-2 text-center">
+                        <p class="h2 text-white text-center mb-2">
+                            <img src="https://img.icons8.com/officel/60/000000/valet-parking.png"/>
+                            MAL ESTACIONADOS
+                            <img src="https://img.icons8.com/officel/60/000000/valet-parking.png"/>
+                        </p> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-2 mt-2 text-center">
+                    <label for="{{form.fecha.id_for_label}}" class="form-control-label" id="label1">Fecha</label>
+                    {{ form.fecha }}
+                </div>
+                <div class="col-md-2 mt-2 text-center">
+                    <label for="{{form.hora.id_for_label}}" class="form-control-label" id="label1" >Hora</label>
+                    {{form.hora}}
+                </div>
+                <div class="col-md-3 mt-2 text-center">
+                    <label for="{{form.estatus_evento.id_for_label}}" class="form-control-label" id="label1" ></label>
+                    <fieldset class=" content-center text-white mt-2">
+                        {% for radio in form.estatus_servicio %}
+                        <label for="{{ radio.id_for_label }}">
+                            {{ radio.choice_label }}
+                            <span class="radio mx-2">{{ radio.tag }}</span>
+                        </label>
+                        {% endfor %}
+                    </fieldset>   
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-6 text-center">
+                    <label for="{{form.domicilio.id_for_label}}" class="form-control-label" id="label1" >Domicilio</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"></path>
+                            </svg>
+                        </span>
+                        {{form.domicilio}}
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="{{form.colonia.id_for_label}}" class="form-control-label" id="label1" >Colonia</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-compass-fill" viewBox="0 0 16 16">
+                                <path d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.503 7.503 0 0 1 5.538 7.24zm-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z"/>
+                              </svg>
+                        </span>
+                        {{form.colonia}}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-3 text-center">
+                    <label for="{{form.sector.id_for_label}}" class="form-control-label" id="label1" >Sector</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <img src="https://img.icons8.com/material/16/000000/compass--v1.png"/>
+                        </span>
+                        {{form.sector}}
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="{{form.unidad.id_for_label}}" class="form-control-label" id="label1">Unidad</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <img src="https://img.icons8.com/material/16/000000/police-car--v1.png"/>
+                        </span>
+                        {{form.unidad}} 
+                        <p class="help-block te">{{form.unidad.help_text}}</p>
+                    </div>  
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="{{form.grupo.id_for_label}}" class="form-control-label" id="label1" >Grupo</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <img src="https://img.icons8.com/material/16/000000/user-group-man-man--v1.png"/>
+                        </span>
+                        {{form.grupo}}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-6 text-center">
+                    <label for="{{form.elemento.id_for_label}}" class="form-control-label" id="label1" >Elemento</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                              </svg>
+                        </span>
+                        {{form.elemento}}
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="{{form.origen.id_for_label}}" class="form-control-label" id="label1" >Origen</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <img src="https://img.icons8.com/material/16/000000/phone-ringing.png"/>
+                        </span>    
+                        {{form.origen}}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-3 text-center">
+                    <label for="{{form.evento.id_for_label}}" class="form-control-label" id="label1" >Evento</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cone-striped" viewBox="0 0 16 16">
+                                <path d="m9.97 4.88.953 3.811C10.159 8.878 9.14 9 8 9c-1.14 0-2.158-.122-2.923-.309L6.03 4.88C6.635 4.957 7.3 5 8 5s1.365-.043 1.97-.12zm-.245-.978L8.97.88C8.718-.13 7.282-.13 7.03.88L6.275 3.9C6.8 3.965 7.382 4 8 4c.618 0 1.2-.036 1.725-.098zm4.396 8.613a.5.5 0 0 1 .037.96l-6 2a.5.5 0 0 1-.316 0l-6-2a.5.5 0 0 1 .037-.96l2.391-.598.565-2.257c.862.212 1.964.339 3.165.339s2.303-.127 3.165-.339l.565 2.257 2.391.598z"/>
+                            </svg>
+                        </span>    
+                        {{form.evento}}
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="{{form.folio_infraccion.id_for_label}}" class="form-control-label" id="label1" >Folio Infracción</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <img src="https://img.icons8.com/material/16/000000/delete-receipt.png"/>
+                        </span>    
+                        {{form.folio_infraccion}}
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <label for="{{form.numerales.id_for_label}}" class="form-control-label" id="label1" >Numerales</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ol" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+                                <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z"/>
+                              </svg>
+                        </span>    
+                        {{form.numerales}}
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-5 text-center">
+                    <label for="{{form.motivo_no_atencion.id_for_label}}" class="form-control-label" id="label1" >Motivo de No Atención</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="add_icon">
+                            <img src="https://img.icons8.com/material/16/000000/cancel--v1.png"/>
+                        </span>    
+                        {{form.motivo_no_atencion}}
+                    </div>
+                </div>
+            </div>  
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-8">
+                    <label for="{{form.observaciones.id_for_label}}" class="form-control-label" id="label1" >Observaciones</label>
+                    {{form.observaciones}}
+                </div>
+            </div>
+            
+
+            <button type="submit" id="button1">GUARDAR</button>
+
+
+        </div>
+    </form>
+</div>  
+
+{% endblock %}

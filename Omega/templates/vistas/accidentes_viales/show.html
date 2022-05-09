@@ -1,0 +1,422 @@
+<div class="modal-dialog modal-lg" role="document" >
+    <div class="modal-content"  id="modal1">
+        {% for ac in accidente %}
+        <div class="modal-header">
+            <h2 class="modal-title">INFORMACION DEL REGISTRO: {{ac.id}} </h2>
+            <button class="btn-close"  type="button" aria-dismiss="modal" aria-label="Close">
+            </button>
+        </div>
+        <div class="modal-body mb-2">
+            <div class="card-body">
+                <dl class="row text-white">
+                    <dt class="col-6 " id="show1">
+                        Fecha:
+                    </dt>
+                    <dd class="col-6 " id="show2">
+                        {{ac.fecha}}
+                    </dd>
+                    
+                    <dt class="col-6 " id="show1">
+                        Hora:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.hora}}
+                    </dd>
+                    {% if ac.folio_911 != none %}
+                        <dt class="col-6 " id="show1">
+                        Folio 911:
+                        </dt>
+                        <dd class="col-6">
+                            <strong>{{ac.folio_911}}</strong>
+                        </dd>
+                    {% else %}
+                        <dt class="col-6 " id="show1">
+                            Folio 911:
+                        </dt>
+                        <dd class="col-6">
+                            Ingresar Folio de 911
+                        </dd>
+                    {% endif %}
+                    <dt class="col-6 " id="show1">
+                        Estatus del Accidente:
+                    </dt>
+                    <dd class="col-6">
+                        <strong>{{ac.estatus_accidente}}</strong>
+                    </dd>
+                    <dt class="col-6" id="show1">
+                        Domicilio:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.domicilio}}
+                    </dd>
+                    <dt class="col-6" id="show1">
+                        Colonia:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.colonia}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Sector:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.sector}}
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Unidad:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.unidad}}
+                        
+                    </dd>
+                    <dt class="col-6 " id="show1">
+                        Grupo Operativo:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.grupo}}
+                    </dd>
+                    {% if ac.elemento != none %}
+                        <dt class="col-6 " id="show1">
+                        Elemento:
+                        </dt>
+                        <dd class="col-6">
+                            {{ac.elemento}}
+                        </dd>
+                    {% else %}
+                        <dt class="col-6 " id="show1">
+                            Elemento:
+                        </dt>
+                        <dd class="col-6">
+                            Ingresar nombre del elemento
+                        </dd>
+                    {% endif %}
+                    <dt class="col-6" id="show1">
+                        Origen de Reporte:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.origen}}
+                    </dd>                   
+                    <dt class="col-6 " id="show1">
+                        Observaciones:
+                    </dt>
+                    <dd class="col-6">
+                        {{ac.observaciones}}
+                    </dd>
+                </dl>
+                <div class="row justify-content-center">
+                    <div class="col-md-3 text-center">
+                        <a href="{% url  'accidentes/update' ac.id  %}" class="btn btn-lg" id="conductor">EDITAR</a>
+                    </div>  
+                </div>
+            </div>
+           
+            {% for data in accidenteAtendido %}
+                <hr class=" mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <p class="h4 text-white">DATOS DEL ACCIDENTE</p> <!--ATENDIDO--> 
+                    </div>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <dl class="row text-white">
+                        {% if data.peritos != none %}
+                            <dt class="col-6 " id="show1">
+                            Peritos:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.peritos}}
+                            </dd>
+                        {% endif %}
+                        {% if data.policia_estatal != none %}
+                            <dt class="col-6 " id="show1">
+                            Policia Estatal:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.policia_estatal}}
+                            </dd>
+                        {% endif %}
+                        {% if data.policia_federal != none %}
+                            <dt class="col-6 " id="show1">
+                            Policia Federal
+                            </dt>
+                            <dd class="col-6">
+                                {{data.policia_federal}}
+                            </dd>
+                        {% endif %}
+                        {% if data.policia_preventiva != none %}
+                            <dt class="col-6 " id="show1">
+                            Policia Preventiva:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.policia_preventiva}}
+                            </dd>
+                        {% endif %}
+                        {% if data.gurdia_nacional != none %}
+                            <dt class="col-6 " id="show1">
+                            Guardia Nacional:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.gurdia_nacional}}
+                            </dd>
+                        {% endif %}
+                        {% if data.proteccion_civil != none %}
+                            <dt class="col-6 " id="show1">
+                            Protección Civil:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.proteccion_civil}}
+                            </dd>
+                        {% endif %}
+                        {% if data.bomberos != none %}
+                            <dt class="col-6 " id="show1">
+                            Bomberos:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.bomberos}}
+                            </dd>
+                        {% endif %}
+                        {% if data.grua != none %}
+                            <dt class="col-6 " id="show1">
+                            Grúa:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.grua}}
+                            </dd>
+                        {% endif %}
+                        {% if data.cruz_roja != none %}
+                            <dt class="col-6 " id="show1">
+                            Cruz Roja:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.cruz_roja}}
+                            </dd>
+                        {% endif %}
+                        <dt class="col-6 " id="show1">
+                        Tipo de Accidente:
+                        </dt>
+                        <dd class="col-6">
+                            {{data.tipo_accidente}}
+                        </dd>
+                        <dt class="col-6 " id="show1">
+                        Tipo de Daños:
+                        </dt>
+                        <dd class="col-6">
+                            {{data.tipo_daños}}
+                        </dd>
+                        <dt class="col-6 " id="show1">
+                        Causa del Accidente:
+                        </dt>
+                        <dd class="col-6">
+                            {{data.causa_accidente}}
+                        </dd>
+                        {% if lesionados_fem.cruz_roja != none %}
+                            <dt class="col-6 " id="show1">
+                            Cantidad de Lesionados Femeninos:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.lesionados_fem}}
+                            </dd>
+                        {% endif %}
+                        {% if lesionados_masc.cruz_roja != none %}
+                            <dt class="col-6 " id="show1">
+                            Cantidad de Lesionados Masculinos:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.lesionados_masc}}
+                            </dd>
+                        {% endif %}
+                        {% if fallecidos_fem.cruz_roja != none %}
+                            <dt class="col-6 " id="show1">
+                            Cantidad de Fallecidos Femeninos:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.fallecidos_fem}}
+                            </dd>
+                        {% endif %}
+                        {% if fallecidos_masc.cruz_roja != none %}
+                            <dt class="col-6 " id="show1">
+                            Cantidad de Fallecidos Masculinos:
+                            </dt>
+                            <dd class="col-6">
+                                {{data.fallecidos_masc}}
+                            </dd>
+                        {% endif %}
+                    </dl>
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 text-center">
+                            <a href="{% url  'accidentesAtendido/update' data.id_accidente_id  %}" class="btn btn-lg" id="conductor">EDITAR</a>
+                        </div>  
+                    </div>
+                </div>
+            {% endfor %}
+            {% for data2 in accidenteNoAtendido %}
+                <hr class=" mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <p class="h4 text-white">DATOS DEL ACCIDENTE</p> <!--NO ATENDIDO--> 
+                    </div>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <dl class="row text-white">
+                        <dt class="col-6 " id="show1">
+                        Motivo de No Atención:
+                        </dt>
+                        <dd class="col-6">
+                            {{data2.motivo_no_atencion}}
+                        </dd>
+                    </dl>
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 text-center">
+                            <a href="{% url  'accidentesNoAtendido/update' data2.id_accidente_id  %}" class="btn btn-lg" id="conductor">EDITAR</a>
+                        </div>  
+                    </div>
+                </div>
+            {% endfor %}
+            {% for data3 in accidenteConductor %}
+                <hr class=" mt-4">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <p class="h4 text-white">PARTICIPANTE {{forloop.counter}}</p> <!--PARTICIPANTES--> 
+                    </div>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <dl class="row text-white">
+                        {% if data3.nombre_conductor != none or data3.apellido_paterno_conductor != none or data3.apellido_materno_conductor != none %}
+                        <dt class="col-6 " id="show1">
+                        Nombre del Conductor:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.nombre_conductor}} {{data3.apellido_paterno_conductor}} {{data3.apellido_materno_conductor}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.domicilio_conductor != none %}
+                        <dt class="col-6 " id="show1">
+                        Domicilio del Conductor:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.domicilio_conductor}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.sexo_conductor != none %}
+                        <dt class="col-6 " id="show1">
+                        Sexo del Conductor:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.sexo_conductor}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.edad_conductor != none %}
+                        <dt class="col-6 " id="show1">
+                        Edad del Conductor:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.edad_conductor}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.licencia_conductor != none %}
+                        <dt class="col-6 " id="show1">
+                        Licencia:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.licencia_conductor}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.servicio_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Servicio de Vehículo:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.servicio_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.tipo_servicio_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Tipo de Servicio:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.tipo_servicio_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.clasificacion_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Clasificación:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.clasificacion_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.marca_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Marca del Vehículo:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.marca_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.tipo_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Tipo de Vehículo:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.tipo_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.modelo_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Modelo:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.modelo_vehiculo}}
+                        </dd>
+                    {% endif %}
+                     {% if data3.placas_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Placas:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.placas_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    {% if data3.color_vehiculo != none %}
+                        <dt class="col-6 " id="show1">
+                        Color:
+                        </dt>
+                        <dd class="col-6">
+                            {{data3.color_vehiculo}}
+                        </dd>
+                    {% endif %}
+                    </dl>
+                    <div class="row justify-content-center">
+                        <div class="col-md-3 text-center">
+                            <a href="{% url  'conductoresAccidente/edit' data3.id_accidente_id  %}" class="btn btn-lg" id="conductor">EDITAR</a>
+                        </div>  
+                    </div>
+                </div>
+            {% endfor %}
+            {% if ac.estatus_accidente == 'ATENDIDO' %}
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <a href="{% url   'conductor/index'  ac.id %}" class="btn btn-lg" id="conductor">AGREGAR CONDUCTOR</a>
+                    </div>  
+                </div>
+            {% endif %}
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" type="button" data-dismiss="modal">Cerrar</button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<script type="text/javascript">
+$(".btn-close").click(function(){
+        $("#view").modal('hide');
+    });
+
+$(".btn-danger").click(function(){
+        $("#view").modal('hide');
+    });
+</script>
